@@ -1,25 +1,119 @@
-<!doctype html>
-<html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Webtech WS24</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<!DOCTYPE html>
+<html lang="en">
 
-  <body>
-    <header>
-      <img class="logo" src="htw-logo.svg" alt="Logo der HTW-Berlin" />
-      <h1>Webtech WS 2024</h1>
-    </header>
-    <main>
-      <h2>Herzlich Willkommen 👋</h2>
-    </main>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- правильное отображение на девайсах -->
+  <title>litRank — Book Ranking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-  <script>
-    const logo = document.querySelector('.logo');
-    const randomAngle = Math.round(Math.random() * 360);
-    logo.style.filter = `hue-rotate(${randomAngle}deg)`;
-  </script>
+
+<body>
+
+<header>
+  <div class="header-content">
+    <h1>litRank</h1>
+
+    <div class="search-container">
+      <input type="text" placeholder="Search books...">
+      <button class="search-button">
+        <img src="/Users/rita/Desktop/Uni/2.1/Webtechnologien/lupa.png" alt="Search Icon" style="width: 20px; height: 20px;">
+      </button>
+    </div>
+
+    <div class="header-buttons">
+      <button class="add-book">Add Book</button>
+      <button class="login">Login</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="book-grid"> <!-- konteiner dlya kartocher knig, setka grid-->
+
+    <div class="book-card">
+      <img src="https://m.media-amazon.com/images/I/61RqCLkGoyL._AC_UF894,1000_QL80_.jpg" alt="Arch of Triumph">
+      <div class="book-info">
+        <h3>Arch of Triumph</h3>
+        <p class="author">Erich Maria Remarque</p>
+        <span class="genre">Novel, War Novel</span>
+        <div class="rating">
+          ★★★☆☆
+        </div>
+        <div class="card-buttons">
+          <button class="will-read">Will Read</button>
+          <button class="already-read">Read</button>
+          <button class="rate">Rate</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <img src="https://images.thalia.media/-/BF2000-2000/f18341522df64395b089813151b6a02b/dune-gebundene-ausgabe-frank-herbert-englisch.jpeg" alt="Dune">
+      <div class="book-info">
+        <h3>Dune</h3>
+        <p class="author">Frank Herbert</p>
+        <span class="genre">Sci-Fi</span>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <div class="card-buttons">
+          <button class="will-read">Will Read</button>
+          <button class="already-read">Read</button>
+          <button class="rate">Rate</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <img src="https://m.media-amazon.com/images/I/41wwNEW0NJL._AC_UF894,1000_QL80_.jpg" alt="The Castle">
+      <div class="book-info">
+        <h3>The Castle</h3>
+        <p class="author">Franz Kafka</p>
+        <span class="genre">Political Fiction, Absurdist Fiction</span>
+        <div class="rating">
+          ★★★★☆
+        </div>
+        <div class="card-buttons">
+          <button class="will-read">Will Read</button>
+          <button class="already-read">Read</button>
+          <button class="rate">Rate</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <img src="https://m.media-amazon.com/images/I/917t3Joq2WL._UF1000,1000_QL80_.jpg" alt="Brave New World ">
+      <div class="book-info">
+        <h3>Brave New World </h3>
+        <p class="author">Aldous Huxley</p>
+        <span class="genre">Sci-Fi, Dystopian Fiction</span>
+        <div class="rating">
+          ★★★★★
+        </div>
+        <div class="card-buttons">
+          <button class="will-read">Will Read</button>
+          <button class="already-read">Read</button>
+          <button class="rate">Rate</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo">litRank</div>
+    <div class="footer-buttons">
+      <button>Impressum</button>
+      <button>Contact</button>
+    </div>
+  </div>
+  <div class="copyright">
+    © 2024 litRank. All rights reserved.
+  </div>
+</footer>
+</body>
 </html>
