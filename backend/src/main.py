@@ -223,3 +223,21 @@ def remove_book_from_user(user_id: int, book_id: int):
         return user_book
     finally:
         db.close()
+
+        from fastapi.responses import FileResponse
+
+@app.get("/", response_class=FileResponse)
+def serve_index():
+    return "frontend/index.html"
+
+@app.get("/book", response_class=FileResponse)
+def serve_book():
+    return "frontend/book.html"
+
+@app.get("/map", response_class=FileResponse)
+def serve_map():
+    return "frontend/map.html"
+
+@app.get("/contact", response_class=FileResponse)
+def serve_contact():
+    return "frontend/contact.html"
