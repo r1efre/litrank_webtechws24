@@ -5,12 +5,19 @@ from jose import JWTError, jwt
 from datetime import datetime, timedelta
 from typing import Optional
 from passlib.context import CryptContext
+from starlette.responses import FileResponse
+from starlette.staticfiles import StaticFiles
+
 from .database import SessionLocal, engine
 from . import models, crud, schemas
 
 models.Base.metadata.create_all(bind=engine)
 
+
+
 app = FastAPI()
+
+app.mount("/static", StaticFiles(directory="frontend"), name="static")
 
 # JWT Configuration
 SECRET_KEY = "a_secret_key"
@@ -23,10 +30,9 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 # OAuth2 schema
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
-@app.get("/")
-def read_root():
-    return {"message": "Welcome to the API!"}
-
+@app.get("/", response_class=FileResponse)
+def serve_frontend():
+    return "frontend/index.html"
 
 # Utility: Verify password
 def verify_password(plain_password, hashed_password):
