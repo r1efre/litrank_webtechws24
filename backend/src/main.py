@@ -249,6 +249,10 @@ def serve_contact():
 def serve_search():
     return "frontend/search.html"
 
+@app.get("/index.html", response_class=FileResponse)
+def serve_index_alias():
+    return "frontend/index.html"
+
 from fastapi.staticfiles import StaticFiles
 
 app.mount("/static", StaticFiles(directory="frontend"), name="static")
