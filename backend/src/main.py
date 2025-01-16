@@ -226,18 +226,30 @@ def remove_book_from_user(user_id: int, book_id: int):
 
         from fastapi.responses import FileResponse
 
+
+from fastapi.responses import FileResponse
+
 @app.get("/", response_class=FileResponse)
 def serve_index():
     return "frontend/index.html"
 
-@app.get("/book", response_class=FileResponse)
-def serve_book():
-    return "frontend/book.html"
+@app.get("/impressum.html", response_class=FileResponse)
+def serve_impressum():
+    return "frontend/impressum.html"
 
-@app.get("/map", response_class=FileResponse)
+@app.get("/map.html", response_class=FileResponse)
 def serve_map():
     return "frontend/map.html"
 
-@app.get("/contact", response_class=FileResponse)
+@app.get("/contact.html", response_class=FileResponse)
 def serve_contact():
     return "frontend/contact.html"
+
+@app.get("/search.html", response_class=FileResponse)
+def serve_search():
+    return "frontend/search.html"
+
+from fastapi.staticfiles import StaticFiles
+
+app.mount("/static", StaticFiles(directory="frontend"), name="static")
+
