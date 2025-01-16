@@ -23,6 +23,11 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 # OAuth2 schema
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the API!"}
+
+
 # Utility: Verify password
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
