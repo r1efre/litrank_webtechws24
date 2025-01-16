@@ -1,0 +1,11 @@
+Metadata-Version: 2.2
+Name: app
+Version: 0.1.0
+Summary: Backend for litRank book ranking application
+Requires-Dist: fastapi>=0.78.0
+Requires-Dist: uvicorn>=0.17.6
+Requires-Dist: sqlalchemy>=1.4.32
+Requires-Dist: psycopg2-binary>=2.9.3
+Requires-Dist: pydantic>=1.9.0
+Requires-Dist: fastapi-middleware>=0.1.3
+Requires-Dist: passlib>=1.7.4

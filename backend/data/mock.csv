@@ -1,0 +1,11 @@
+id,title,author,genre,rating,image_url
+1,The Great Gatsby,F. Scott Fitzgerald,Fiction,4.4,https://example.com/images/gatsby.jpg
+2,To Kill a Mockingbird,Harper Lee,Fiction,4.8,https://example.com/images/mockingbird.jpg
+3,1984,George Orwell,Dystopian,4.6,https://example.com/images/1984.jpg
+4,Pride and Prejudice,Jane Austen,Romance,4.7,https://example.com/images/pride.jpg
+5,The Catcher in the Rye,J.D. Salinger,Fiction,4.3,https://example.com/images/catcher.jpg
+6,The Hobbit,J.R.R. Tolkien,Fantasy,4.8,https://example.com/images/hobbit.jpg
+7,Brave New World,Aldous Huxley,Dystopian,4.5,https://example.com/images/brave.jpg
+8,Moby-Dick,Herman Melville,Adventure,4.2,https://example.com/images/mobydick.jpg
+9,War and Peace,Leo Tolstoy,Historical,4.9,https://example.com/images/warpeace.jpg
+10,The Alchemist,Paulo Coelho,Philosophy,4.6,https://example.com/images/alchemist.jpg

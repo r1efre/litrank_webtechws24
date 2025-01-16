@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Details</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <script defer src="book.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <h1 style="color: white;"><a href="index.html" style="color: white; text-decoration: none;">litRank</a></h1>
+  
+      <nav>
+        <ul>
+          <li><a href="map.html">Map</a></li>
+          <li><a href="search.html">Advanced Search</a></li>
+        </ul>
+      </nav>
+  
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search books by title ...">
+        <button class="search-button">
+          <img src="images/lupa.png" alt="Search Icon" style="width: 20px; height: 20px;">
+        </button>
+      </div>
+  
+      <div class="header-buttons">
+        <span id="user-nickname" style="display: none;"></span>
+        <button class="add-book">Add Book</button>
+        <button class="sign-up">Sign-Up</button>
+        <button class="login">Login</button>
+        <button class="logout" style="display: none;">Logout</button>
+      </div>
+    </div>
+  </header>
+
+<main>
+  <div class="book-details" id="book-details">
+    <!-- Book details will be dynamically inserted here -->
+  </div>
+</main>
+
+<!-- Update Book Modal -->
+<div id="updateBookModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Update Book</h2>
+    <form id="updateBookForm">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required>
+      <label for="author">Author:</label>
+      <input type="text" id="author" name="author" required>
+      <label for="genre">Genre:</label>
+      <input type="text" id="genre" name="genre" required>
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required></textarea>
+      <label for="rating">Rating:</label>
+      <input type="number" id="rating" name="rating" min="0" max="5" step="0.1" required>
+      <label for="image_url">Cover:</label>
+      <input type="text" id="image_url" name="image_url" required>
+      <button type="submit">Update</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-logo">litRank</div>
+    <div class="footer-buttons">
+      <button onclick="location.href='impressum.html'">Impressum</button>
+      <button onclick="location.href='contact.html'">Contact</button>
+    </div>
+  </div>
+  <div class="copyright">
+    © 2025 litRank. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>
