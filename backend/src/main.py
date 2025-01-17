@@ -5,11 +5,12 @@ from jose import JWTError, jwt
 from datetime import datetime, timedelta
 from typing import Optional
 from passlib.context import CryptContext
+from sqlalchemy.orm import Session
 from starlette.responses import FileResponse
 from starlette.staticfiles import StaticFiles
 
 from .database import SessionLocal, engine
-from . import models, crud, schemas
+from . import models, crud, schemas, database
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -33,6 +34,11 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 @app.get("/", response_class=FileResponse)
 def serve_frontend():
     return "frontend/index.html"
+
+@app.get("/")
+def read_books(db: Session = Depends(database.get_db)):
+    books = db.query(models.Book).all()
+    return {"books": books}
 
 # Utility: Verify password
 def verify_password(plain_password, hashed_password):
