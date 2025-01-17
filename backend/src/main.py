@@ -31,31 +31,6 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 # OAuth2 schema
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
-@app.get("/", response_class=FileResponse)
-def serve_frontend():
-    return "frontend/index.html"
-
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
-@app.get("/")
-def read_root(db: Session = Depends(get_db)):
-    books = crud.get_books(db)
-    return {"books": books}
-
-@app.get("/books", response_model=list[schemas.Book])
-def read_books(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
-    books = crud.get_books(db, skip=skip, limit=limit)
-    return books
-
-@app.post("/books", response_model=schemas.Book)
-def create_book(book: schemas.BookCreate, db: Session = Depends(get_db)):
-    return crud.create_book(db=db, book=book)
-
 # Utility: Verify password
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
