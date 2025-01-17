@@ -8,17 +8,16 @@ from sqlalchemy.orm import sessionmaker
 
 
 
-DATABASE_URL = os.getenv("postgresql://avnadmin:AVNS_VhEyCyHPV6jdhs65GqL@pg-1a34ffe7-worker-3c3d.g.aivencloud.com:21815/defaultdb?sslmode=require")  # Или другой URL для PostgreSQL/MySQL
-engine = create_engine(DATABASE_URL)
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+# Считываем DATABASE_URL из переменных окружения
+SQLALCHEMY_DATABASE_URL = os.getenv("postgresql://avnadmin:AVNS_VhEyCyHPV6jdhs65GqL@pg-1a34ffe7-worker-3c3d.g.aivencloud.com:21815/defaultdb?sslmode=require")
 
+if not SQLALCHEMY_DATABASE_URL:
+    raise ValueError("No DATABASE_URL environment variable found")
+
+# Создаём движок с SSL
+engine = create_engine(SQLALCHEMY_DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 
