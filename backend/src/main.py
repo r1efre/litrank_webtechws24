@@ -35,10 +35,26 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 def serve_frontend():
     return "frontend/index.html"
 
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
 @app.get("/")
-def read_books(db: Session = Depends(database.get_db)):
-    books = db.query(models.Book).all()
+def read_root(db: Session = Depends(get_db)):
+    books = crud.get_books(db)
     return {"books": books}
+
+@app.get("/books", response_model=list[schemas.Book])
+def read_books(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+    books = crud.get_books(db, skip=skip, limit=limit)
+    return books
+
+@app.post("/books", response_model=schemas.Book)
+def create_book(book: schemas.BookCreate, db: Session = Depends(get_db)):
+    return crud.create_book(db=db, book=book)
 
 # Utility: Verify password
 def verify_password(plain_password, hashed_password):
@@ -259,7 +275,4 @@ def serve_search():
 def serve_index_alias():
     return "frontend/index.html"
 
-from fastapi.staticfiles import StaticFiles
-
-app.mount("/static", StaticFiles(directory="frontend"), name="static")
 
