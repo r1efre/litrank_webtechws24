@@ -12,9 +12,7 @@ from starlette.staticfiles import StaticFiles
 
 from .database import SessionLocal, engine
 from . import models, crud, schemas, database
-from models import Base
 
-Base.metadata.create_all(bind=engine)
 
 models.Base.metadata.create_all(bind=engine)
 
