@@ -5,13 +5,10 @@ from jose import JWTError, jwt
 from datetime import datetime, timedelta
 from typing import Optional
 from passlib.context import CryptContext
-from sqlalchemy.orm import Session
-from starlette.responses import FileResponse
 from starlette.staticfiles import StaticFiles
 
-
 from .database import SessionLocal, engine
-from . import models, crud, schemas, database
+from . import models, crud, schemas
 
 
 models.Base.metadata.create_all(bind=engine)
