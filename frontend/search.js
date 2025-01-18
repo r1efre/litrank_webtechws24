@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!token) return null;
 
     try {
-      const response = await fetch("http://localhost:8000/users/me", {
+      const response = await fetch("https://litrank-webtech-3926216d016d.herokuapp.com/users/me", {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8000/books/", {
+      const response = await fetch("https://litrank-webtech-3926216d016d.herokuapp.com/books/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (response.ok) {
         addBookModal.style.display = "none";
         addBookForm.reset();
-        const response = await fetch("http://localhost:8000/books/");
+        const response = await fetch("https://litrank-webtech-3926216d016d.herokuapp.com/books/");
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   
     try {
-      const response = await fetch(`http://localhost:8000/books/search/?${queryParams.toString()}`);
+      const response = await fetch(`https://litrank-webtech-3926216d016d.herokuapp.com/books/search/?${queryParams.toString()}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Function to fetch and display books based on genre
   async function fetchAndDisplayBooksByGenre(genre) {
     try {
-      const response = await fetch(`http://localhost:8000/books/search/?genre=${encodeURIComponent(genre)}`);
+      const response = await fetch(`https://litrank-webtech-3926216d016d.herokuapp.com/books/search/?genre=${encodeURIComponent(genre)}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
