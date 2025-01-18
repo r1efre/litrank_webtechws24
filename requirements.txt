@@ -8,4 +8,4 @@ passlib>=1.7.4
 python-jose
 python-multipart
 gunicorn>=20.1.0
-
+bcrypt
