@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   displayUserNickname();
 
   try {
-    const response = await fetch("http://localhost:8000/books/");
+    const response = await fetch("https://litrank-webtech-3926216d016d.herokuapp.com/books/");
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:8000/users/${user.id}/books/${bookId}`, {
+      const response = await fetch(`https://litrank-webtech-3926216d016d.herokuapp.com/users/${user.id}/books/${bookId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8000/users/", {
+      const response = await fetch("https://litrank-webtech-3926216d016d.herokuapp.com/users/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8000/token", {
+      const response = await fetch("https://litrank-webtech-3926216d016d.herokuapp.com/token", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
@@ -327,7 +327,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8000/books/", {
+      const response = await fetch("https://litrank-webtech-3926216d016d.herokuapp.com/books/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -341,7 +341,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         addBookModal.style.display = "none";
         addBookForm.reset();
         // Optionally, refresh the book list here
-        const response = await fetch("http://localhost:8000/books/");
+        const response = await fetch("https://litrank-webtech-3926216d016d.herokuapp.com/books/");
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
