@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!token) return null;
 
     try {
-      const response = await fetch("https://litrank-webtech-3926216d016d.herokuapp.com", {
+      const response = await fetch("https://litrank-webtech-3926216d016d.herokuapp.com/users/me", {
         headers: {
           "Authorization": `Bearer ${token}`
         }
