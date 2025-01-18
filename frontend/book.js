@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    const response = await fetch(`http://localhost:8000/books/${bookId}`);
+    const response = await fetch(`https://litrank-webtech-3926216d016d.herokuapp.com/books/${bookId}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       document.querySelector(".delete-book").addEventListener("click", async () => {
         if (confirm("Are you sure you want to delete this book?")) {
           try {
-            const deleteResponse = await fetch(`http://localhost:8000/books/${bookId}`, {
+            const deleteResponse = await fetch(`https://litrank-webtech-3926216d016d.herokuapp.com/books/${bookId}`, {
               method: "DELETE",
               headers: {
                 "Authorization": `Bearer ${token}`
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           image_url: updateBookForm.image_url.value,
         };
         try {
-          const updateResponse = await fetch(`http://localhost:8000/books/${bookId}`, {
+          const updateResponse = await fetch(`https://litrank-webtech-3926216d016d.herokuapp.com/books/${bookId}`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!token) return null;
 
     try {
-      const response = await fetch("http://localhost:8000/users/me", {
+      const response = await fetch("https://litrank-webtech-3926216d016d.herokuapp.com/users/me", {
         headers: {
           "Authorization": `Bearer ${token}`
         }
