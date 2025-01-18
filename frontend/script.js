@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.querySelectorAll(".book-title").forEach(title => {
       title.addEventListener("click", (event) => {
         const bookId = event.target.dataset.bookId;
-        window.location.href = `book.html?id=${bookId}`;
+        window.location.href = `/static/book.html?id=${bookId}`;
       });
     });
   
